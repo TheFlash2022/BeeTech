@@ -21,49 +21,65 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <header>
-          <div className="bg-amber-300 flex">
+          <div className="bg-amber-300 flex justify-between">
             <div className="w-52 mx-3 my-3">
               <img
                 src="https://beetech.com.vn/assets/img/common/logo.png"
                 alt="logoBeeTech"
               />
             </div>
-            <ul className="nav nav-pills my-4 mx-4">
+            <ul className="nav nav-pills items-center">
               <li className="nav-item">
-                <Link href={"/"} className="nav-link" aria-current="page">
+                <Link
+                  href={"/"}
+                  className="nav-link text-black text-xl font-semibold"
+                  aria-current="page"
+                >
                   Home
                 </Link>
               </li>
               <li className="nav-item">
-                <Link href={"/products"} className="nav-link">
+                <Link
+                  href={"/products"}
+                  className="nav-link text-black text-xl font-semibold"
+                >
                   Products
                 </Link>
               </li>
               <li className="nav-item">
-                <Link href={"/solutions"} className="nav-link">
+                <Link
+                  href={"/solutions"}
+                  className="nav-link text-black text-xl font-semibold"
+                >
                   Solutions
                 </Link>
               </li>
               <li className="nav-item">
-                <Link href={"/news"} className="nav-link">
+                <Link
+                  href={"/news"}
+                  className="nav-link text-black text-xl font-semibold"
+                >
                   News
                 </Link>
               </li>
               <li className="nav-item">
-                <Link href={"/contact"} className="nav-link">
+                <Link
+                  href={"/contact"}
+                  className="nav-link text-black text-xl font-semibold"
+                >
                   Contact
                 </Link>
               </li>
             </ul>
-            <div className="search-container mx-6 my-6">
-              <form action="" className="absolute">
+            <div className="search-container flex items-center mr-6">
+              <form action="" className="relative">
                 <input
                   className="w-60 h-10 rounded-lg"
                   name="search"
                   type="text"
                   placeholder="Search..."
                 />
-                <button type="submit" className="relative right-5">
+                <button className="absolute top-2 right-2" type="submit">
                   <i className="bi bi-search"></i>
                 </button>
               </form>
@@ -164,10 +180,7 @@ export default function RootLayout({
               </button>
             </div>
           </div>
-          <div
-            className="footer-center flex ml-5 mr-5 mt-5"
-            style={{ background: "#ffffff" }}
-          >
+          <div className="footer-center bg-gray-900 text-gray-200 flex px-3 py-5">
             <div className="col-lg-4 col-md-4 col-sm-12 col-xs-12 ft-item ft-2">
               <h3 className="text-2xl font-bold">Contact</h3>
               <ul className="footer-block-content">
@@ -231,15 +244,29 @@ export default function RootLayout({
                 </li>
               </ul>
             </div>
-            <div className="col-lg-4 col-md-4 col-sm-4 col-xs-12 ft-item ft-3">
-              <h3 className="text-2xl font-bold">BeeTech Company</h3>
-              <p className=""></p>
+            <div className="">
+              <div className="flex items-center">
+                <img
+                  src="https://beetech.com.vn/assets/img/common/logo_yellow_white.png"
+                  alt="logoBeeTech"
+                  width={"140"}
+                  height={"30"}
+                />
+                <h3 className="text-2xl font-bold mb-0 ml-3">Company</h3>
+              </div>
+              <p className="text-sm font-light">
+                Bee Tech was the precursor of Huy Hoang Investment and
+                Technology Development Joint Stock Company (Splendid) - is the
+                first company in Vietnam to work on RFID. Specializing in
+                consulting and providing leading technology solutions (AutoID;
+                IoT, Al, and PL) in Southeast Asia.
+              </p>
             </div>
           </div>
-          <div className="footer-bottom mb-8" style={{ background: "#ffffff" }}>
+          <div className="footer-bottom bg-slate-400 py-6">
             <Link href="#">
               <img
-                className="img-payment lazyautosizes lazyloaded"
+                className="img-payment lazyautosizes lazyloaded mx-auto"
                 data-sizes="auto"
                 src="//ss-bestshop.myshopify.com/cdn/shop/files/payment.png?v=1613740518"
                 alt="BestShop"
