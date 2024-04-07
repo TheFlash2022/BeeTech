@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import "bootstrap/dist/css/bootstrap.css";
+import "bootstrap-icons/font/bootstrap-icons.css";
 import "./globals.css";
+import Link from "next/link";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -11,12 +14,242 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <header>
+          <div className="bg-amber-300 flex">
+            <div className="w-52 mx-3 my-3">
+              <img
+                src="https://beetech.com.vn/assets/img/common/logo.png"
+                alt="logoBeeTech"
+              />
+            </div>
+            <ul className="nav nav-pills my-4 mx-4">
+              <li className="nav-item">
+                <Link href={"/"} className="nav-link" aria-current="page">
+                  Home
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link href={"/products"} className="nav-link">
+                  Products
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link href={"/solutions"} className="nav-link">
+                  Solutions
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link href={"/news"} className="nav-link">
+                  News
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link href={"/contact"} className="nav-link">
+                  Contact
+                </Link>
+              </li>
+            </ul>
+            <div className="search-container mx-6 my-6">
+              <form action="" className="absolute">
+                <input
+                  className="w-60 h-10 rounded-lg"
+                  name="search"
+                  type="text"
+                  placeholder="Search..."
+                />
+                <button type="submit" className="relative right-5">
+                  <i className="bi bi-search"></i>
+                </button>
+              </form>
+            </div>
+          </div>
+        </header>
+        {children}
+        <footer>
+          <div
+            className="footer-top w-10/12 mt-5 mx-auto text-slate-100 min-h-24 flex rounded-xl"
+            style={{ background: "#2677e7" }}
+          >
+            <div className="left-block ml-3 col-lg-6 col-sm-12 flex items-center">
+              <div className="title-social col-lg-3 col-sm-12">
+                <h3 className="text-xl">Follow Social</h3>
+              </div>
+              <div className="socials-wraps col-lg-9 col-sm-12 col-xs-12">
+                <ul className="flex">
+                  <li className="facebook mr-6">
+                    <Link
+                      className=""
+                      href="http://www.facebook.com/MagenTech"
+                      target="_blank"
+                    >
+                      <i className="bi bi-facebook"></i>
+                      <span className="hidden">Facebook</span>
+                    </Link>
+                  </li>
+                  <li className="twitter mr-6">
+                    <Link
+                      className=""
+                      href="https://twitter.com/MagenTech"
+                      target="_blank"
+                    >
+                      <i className="bi bi-twitter"></i>
+                      <span className="hidden">Twitter</span>
+                    </Link>
+                  </li>
+                  <li className="google_plus mr-6">
+                    <Link
+                      className=""
+                      href="https://plus.google.com/u/0/+Smartaddons"
+                      target="_blank"
+                    >
+                      <i className="bi bi-google"></i>
+                      <span className="hidden">Google Plus</span>
+                    </Link>
+                  </li>
+                  <li className="dribbble mr-6">
+                    <Link
+                      className=""
+                      href="https://dribbble.com/"
+                      target="_blank"
+                    >
+                      <i className="bi bi-dribbble"></i>
+                      <span className="hidden">Dribbble</span>
+                    </Link>
+                  </li>
+                  <li className="instagram">
+                    <Link
+                      className=""
+                      href="http://www.instagram.com"
+                      target="_blank"
+                    >
+                      <i className="bi bi-instagram"></i>
+                      <span className="hidden">Instagram</span>
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div className="right-block flex items-center col-lg-6 col-sm-12">
+              <h3 className="text-sm mr-3">Sign Up For Newslestter</h3>
+              <form
+                method="post"
+                action="/contact#contact_form"
+                id="contact_form"
+                acceptCharset="UTF-8"
+                className="contact-form"
+              >
+                <div className="input-group items-center">
+                  <input
+                    type="text"
+                    name="contact[email]"
+                    id="Email"
+                    className="rounded h-full mr-3 text-black px-2 py-2"
+                    placeholder="Email address"
+                  />
+                </div>
+              </form>
+              <button
+                type="submit"
+                className="btn btn-success"
+                name="commit"
+                id="Subscribe"
+              >
+                Subscribe
+              </button>
+            </div>
+          </div>
+          <div
+            className="footer-center flex ml-5 mr-5 mt-5"
+            style={{ background: "#ffffff" }}
+          >
+            <div className="col-lg-4 col-md-4 col-sm-12 col-xs-12 ft-item ft-2">
+              <h3 className="text-2xl font-bold">Contact</h3>
+              <ul className="footer-block-content">
+                <li className="address">
+                  <i className="bi bi-house-check"></i>
+                  <span className="ml-3">
+                    80-82 Cao Đức Lân, P. An Phú, Tp Thủ Đức, HCM
+                  </span>
+                </li>
+                <li className="email">
+                  <i className="bi bi-envelope-fill"></i>
+                  <span className="ml-3">info@beetech.com.vn</span>
+                </li>
+                <li className="phone">
+                  <i className="bi bi-telephone"></i>
+                  <span className="ml-3">hotline: 0938089669</span>
+                </li>
+                <li className="time">
+                  <i className="bi bi-clock"></i>
+                  <span className="ml-3">8:00AM - 5:00PM, Monday - Friday</span>
+                </li>
+              </ul>
+            </div>
+            <div className="col-lg-2 col-md-2 col-sm-4 col-xs-12 ft-item ft-2">
+              <h3 className="text-2xl font-bold">Our Services</h3>
+              <ul className="">
+                <li>
+                  <a href="/pages/about-us">About Store</a>
+                </li>
+                <li>
+                  <a href="/collections">New Collection</a>
+                </li>
+                <li>
+                  <a href="/pages/contact-us">Contact Us</a>
+                </li>
+                <li>
+                  <a href="/blogs/news">Lastest New</a>
+                </li>
+                <li>
+                  <a href="#">Our Sitemap</a>
+                </li>
+              </ul>
+            </div>
+            <div className="col-lg-2 col-md-2 col-sm-4 col-xs-12 ft-item ft-3">
+              <h3 className="text-2xl font-bold">infomation</h3>
+              <ul className="">
+                <li>
+                  <a href="/pages/about-us">About Store</a>
+                </li>
+                <li>
+                  <a href="/collections">New Collection</a>
+                </li>
+                <li>
+                  <a href="/pages/contact-us">Contact Us</a>
+                </li>
+                <li>
+                  <a href="/blogs/news">Lastest New</a>
+                </li>
+                <li>
+                  <a href="#">Our Sitemap</a>
+                </li>
+              </ul>
+            </div>
+            <div className="col-lg-4 col-md-4 col-sm-4 col-xs-12 ft-item ft-3">
+              <h3 className="text-2xl font-bold">BeeTech Company</h3>
+              <p className=""></p>
+            </div>
+          </div>
+          <div className="footer-bottom mb-8" style={{ background: "#ffffff" }}>
+            <Link href="#">
+              <img
+                className="img-payment lazyautosizes lazyloaded"
+                data-sizes="auto"
+                src="//ss-bestshop.myshopify.com/cdn/shop/files/payment.png?v=1613740518"
+                alt="BestShop"
+                data-src="//ss-bestshop.myshopify.com/cdn/shop/files/payment.png?v=1613740518"
+                sizes="341px"
+              />
+            </Link>
+          </div>
+        </footer>
+      </body>
     </html>
   );
 }
